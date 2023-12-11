@@ -9,6 +9,7 @@ version = "1.0.0"
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://repo.clojars.org")
 }
 
 dependencies {
@@ -16,7 +17,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.json:json:20230227")
     implementation("com.github.N7ghtm4r3:APIManager:2.2.1")
-    implementation("com.deepl.api:deepl-java:1.4.0")
+    implementation("net.clojars.suuft:libretranslate-java:1.0.5")
 }
 
 afterEvaluate {

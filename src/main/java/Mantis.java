@@ -1,4 +1,6 @@
 import com.tecknobit.apimanager.formatters.JsonHelper;
+import net.suuft.libretranslate.Language;
+import net.suuft.libretranslate.Translator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,6 +51,51 @@ public class Mantis {
 
     public void changeCurrentLocale(Locale newLocale) {
         this.currentLocale = newLocale;
+    }
+
+    /**
+     * RUSSIAN
+     * ENGLISH
+     * ARABIC
+     * AZERBAIJANI
+     * CATALAN
+     * CHINESE
+     * CZECH
+     * DANISH
+     * DUTCH
+     * ESPERANTO
+     * FINNISH
+     * FRENCH
+     * GERMAN
+     * GREEK
+     * HEBREW
+     * HINDI
+     * HUNGARIAN
+     * INDONESIAN
+     * IRISH
+     * ITALIAN
+     * JAPANESE
+     * KOREAN
+     * PERSIAN
+     * POLISH
+     * PORTUGUESE
+     * SLOVAK
+     * SPANISH
+     * SWEDISH
+     * TURKISH
+     * UKRAINIAN
+     * @param content
+     * @return
+     */
+    public String translate(String content) {
+        Language language = null;
+        for(Language lLanguage : Language.values()) {
+            if(lLanguage.getCode().equals(currentLocale.getLanguage()))
+                language = lLanguage;
+        }
+        if(language != null)
+            return Translator.translate(language, content);
+        return "";
     }
 
 }
