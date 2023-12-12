@@ -7,17 +7,14 @@ Manage the translation of the content of your applications with Mantis!
 
 ```json
 {
-    // current locale
     "it-IT": {
       "string_one" : "ciao!",
       "string_two": "prova questa libreria :)"
     },
-    // all translations
     "en-EN": {
       "string_one" : "hello!", 
       "string_two": "try this library :)"
-    }
-//  ... 
+    } 
 }
 ```
 
