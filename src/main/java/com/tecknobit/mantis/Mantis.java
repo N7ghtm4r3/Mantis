@@ -1,3 +1,5 @@
+package com.tecknobit.mantis;
+
 import com.tecknobit.apimanager.formatters.JsonHelper;
 import net.suuft.libretranslate.Language;
 import net.suuft.libretranslate.Translator;
@@ -9,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 
 /**
- * The {@code Mantis} class is useful to translate all the {@link String} resources in different languages, e.g
+ * The {@code com.tecknobit.mantis.Mantis} class is useful to translate all the {@link String} resources in different languages, e.g
  * <pre>
  *     {@code
  * {

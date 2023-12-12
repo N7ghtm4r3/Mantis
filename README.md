@@ -1,9 +1,91 @@
 # Mantis
 Manage the translation of the content of your applications with Mantis!
 
+## Implementation
+
+Add the JitPack repository to your build file
+
+### Gradle
+
+- Add it in your root build.gradle at the end of repositories
+
+    #### Gradle (Short)
+    
+    ```gradle
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+        maven("https://repo.clojars.org")
+    }
+    ```
+    
+    #### Gradle (Kotlin)
+    
+    ```gradle
+    repositories {
+        ...
+        maven("https://jitpack.io")
+        maven("https://repo.clojars.org")
+    }
+    ```
+  
+- Add the dependency
+
+  #### Gradle (Short)
+
+    ```gradle
+    dependencies {
+        implementation 'com.github.N7ghtm4r3:Mantis:1.0.0'
+    }
+    ```
+
+  #### Gradle (Kotlin)
+
+    ```gradle
+    dependencies {
+        implementation("com.github.N7ghtm4r3:Mantis:1.0.0")
+    }
+    ```
+
+### Maven
+
+- Add it in your root build.gradle at the end of repositories
+
+```xml
+
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+```
+
+- Add the dependency
+
+```xml
+
+<dependency>
+  <groupId>com.github.N7ghtm4r3</groupId>
+  <artifactId>Mantis</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
 ### Usage/Examples
 
 #### Resources file
+
+You must place the resources file, named **resource.mantis**, in the resources folder of your application:
+
+``` bash
+src
+|-- main
+    |-- resources
+    |   |-- resources.mantis
+```
+
+Content example:
 
 ```json
 {
