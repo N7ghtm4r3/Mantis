@@ -1,8 +1,8 @@
 package com.tecknobit.mantis;
 
-import com.tecknobit.apimanager.formatters.JsonHelper;
 import net.suuft.libretranslate.Language;
 import net.suuft.libretranslate.Translator;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class Mantis {
     /**
      * {@code resources} the resources data
      */
-    private JsonHelper resources;
+    private JSONObject resources;
 
     /**
      * Constructor to init the {@link Mantis} object
@@ -80,7 +80,9 @@ public class Mantis {
      * @return the resource in the {@link #currentLocale} chosen as {@link String}
      */
     public String getResource(String resourceKey) {
-        return resources.getString(resourceKey, "");
+        if(resources.has(resourceKey))
+            return resources.getString(resourceKey);
+        return "";
     }
 
     /**
@@ -120,7 +122,7 @@ public class Mantis {
         String line;
         while ((line = bufferedReader.readLine()) != null)
             stringBuilder.append(line);
-        resources = new JsonHelper(stringBuilder.toString()).getJsonHelper(currentLocale.toLanguageTag());
+        resources = new JSONObject(stringBuilder.toString()).getJSONObject(currentLocale.toLanguageTag());
     }
 
     /**
