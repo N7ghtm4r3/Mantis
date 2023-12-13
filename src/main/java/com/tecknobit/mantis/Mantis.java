@@ -66,12 +66,43 @@ public class Mantis {
      *
      */
     public Mantis(Locale currentLocale) throws IOException {
+        this.currentLocale = currentLocale;
         try {
             setCurrentResources();
         } catch (IOException e) {
             throw new IOException("The resources file is not found");
         }
-        this.currentLocale = currentLocale;
+    }
+
+    /**
+     * Method to get a resource from the {@link #MANTIS_RESOURCES_PATH} resources file in the {@link #currentLocale} chosen
+     * @param resourceKey the key of the resource to get e.g. "string_one"
+     * @return the resource in the {@link #currentLocale} chosen as {@link String}
+     */
+    public String getResource(String resourceKey) {
+        return resources.getString(resourceKey, "");
+    }
+
+    /**
+     * Method to change the {@link Locale} for the {@link #currentLocale} chosen
+     * @param newLocale: the new {@link Locale} to use
+     */
+    public void changeCurrentLocale(String newLocale) {
+        changeCurrentLocale(Locale.forLanguageTag(newLocale));
+    }
+
+    /**
+     * Method to change the {@link Locale} for the {@link #currentLocale} chosen
+     * @param newLocale: the new {@link Locale} to use
+     */
+    public void changeCurrentLocale(Locale newLocale) {
+        Locale tmpLocale = Locale.forLanguageTag(currentLocale.toLanguageTag());
+        this.currentLocale = newLocale;
+        try {
+            setCurrentResources();
+        } catch (IOException e) {
+            currentLocale = Locale.forLanguageTag(tmpLocale.toLanguageTag());
+        }
     }
 
     /**
@@ -89,32 +120,7 @@ public class Mantis {
         String line;
         while ((line = bufferedReader.readLine()) != null)
             stringBuilder.append(line);
-        resources = new JsonHelper(stringBuilder.toString());
-    }
-
-    /**
-     * Method to get a resource from the {@link #MANTIS_RESOURCES_PATH} resources file in the {@link #currentLocale} chosen
-     * @param resourceKey the key of the resource to get e.g. "string_one"
-     * @return the resource in the {@link #currentLocale} chosen as {@link String}
-     */
-    public String getResource(String resourceKey) {
-        return resources.getJsonHelper(currentLocale.toLanguageTag()).getString(resourceKey, "");
-    }
-
-    /**
-     * Method to change the {@link Locale} for the {@link #currentLocale} chosen
-     * @param newLocale: the new {@link Locale} to use
-     */
-    public void changeCurrentLocale(String newLocale) {
-        changeCurrentLocale(Locale.forLanguageTag(newLocale));
-    }
-
-    /**
-     * Method to change the {@link Locale} for the {@link #currentLocale} chosen
-     * @param newLocale: the new {@link Locale} to use
-     */
-    public void changeCurrentLocale(Locale newLocale) {
-        this.currentLocale = newLocale;
+        resources = new JsonHelper(stringBuilder.toString()).getJsonHelper(currentLocale.toLanguageTag());
     }
 
     /**
