@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 
 /**
- * The {@code com.tecknobit.mantis.Mantis} class is useful to translate all the {@link String} resources in different languages, e.g
+ * The {@code com.tecknobit.mantis.Mantis} class is useful to translate all the {@link String} resources in different languages, e.g.
  * <pre>
  *     {@code
  * {
@@ -37,7 +37,7 @@ public class Mantis {
     /**
      * {@code MANTIS_RESOURCES_PATH} the path where are stored the resources to translate
      */
-    private static final String MANTIS_RESOURCES_PATH = "resources.mantis";
+    public static final String MANTIS_RESOURCES_PATH = "resources.mantis";
 
     /**
      * {@code currentLocale} the current locale language chosen as default
