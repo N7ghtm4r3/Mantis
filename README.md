@@ -89,11 +89,11 @@ Content example:
 
 ```json
 {
-    "it-IT": {
+    "it": {
       "string_one" : "ciao!",
       "string_two": "prova questa libreria :)"
     },
-    "en-EN": {
+    "en": {
       "string_one" : "hello!", 
       "string_two": "try this library :)"
     } 
@@ -103,11 +103,11 @@ Content example:
 #### Workflow
 
 ```java
-// current locale en-EN
+// current locale en
 Mantis mantis = new Mantis(Locale.getDefault());
 System.out.println(mantis.getResource("string_one")); // hello!
 
-// current locale it-IT
+// current locale it
 Mantis mantis = new Mantis(Locale.getDefault());
 System.out.println(mantis.getResource("string_one")); // ciao!
 

@@ -16,12 +16,12 @@ import java.util.Locale;
  *     {@code
  * {
  *     // current locale
- *    "it-IT": {
+ *    "it": {
  *         "string_one" : "ciao!",
  *         "string_two": "prova questa libreria :)"
  *     },
  *     // all translations
- *     "en-EN": {
+ *     "en": {
  *         "string_one" : "hello!",
  *         "string_two": "try this library :)"
  *     }
@@ -56,7 +56,7 @@ public class Mantis {
      *
      */
     public Mantis(String currentLocale) throws IOException {
-        this(Locale.forLanguageTag(currentLocale));
+        this(new Locale(currentLocale));
     }
 
     /**
@@ -90,7 +90,7 @@ public class Mantis {
      * @param newLocale: the new {@link Locale} to use
      */
     public void changeCurrentLocale(String newLocale) {
-        changeCurrentLocale(Locale.forLanguageTag(newLocale));
+        changeCurrentLocale(new Locale(newLocale));
     }
 
     /**
@@ -98,12 +98,12 @@ public class Mantis {
      * @param newLocale: the new {@link Locale} to use
      */
     public void changeCurrentLocale(Locale newLocale) {
-        Locale tmpLocale = Locale.forLanguageTag(currentLocale.toLanguageTag());
+        Locale tmpLocale = new Locale(currentLocale.getLanguage());
         this.currentLocale = newLocale;
         try {
             setCurrentResources();
         } catch (IOException e) {
-            currentLocale = Locale.forLanguageTag(tmpLocale.toLanguageTag());
+            currentLocale = new Locale(tmpLocale.getLanguage());
         }
     }
 
@@ -122,7 +122,7 @@ public class Mantis {
         String line;
         while ((line = bufferedReader.readLine()) != null)
             stringBuilder.append(line);
-        resources = new JSONObject(stringBuilder.toString()).getJSONObject(currentLocale.toLanguageTag());
+        resources = new JSONObject(stringBuilder.toString()).getJSONObject(currentLocale.getLanguage());
     }
 
     /**
