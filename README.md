@@ -134,6 +134,7 @@ Thank you for your help!
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/tecknobit)
 
 [![](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)](https://www.oracle.com/java/)
+[![](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)](https://plugins.jetbrains.com/plugin/21684-mantis)
 
 [![](https://jitpack.io/v/N7ghtm4r3/Mantis.svg)](https://jitpack.io/#N7ghtm4r3/Mantis)
 
