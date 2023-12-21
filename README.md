@@ -90,13 +90,13 @@ Content example:
 ```json
 {
     "it": {
-      "string_one" : "ciao!",
-      "string_two": "prova questa libreria :)"
+      "string_one_key" : "ciao!",
+      "string_two_key": "prova questa libreria :)"
     },
     "en": {
-      "string_one" : "hello!", 
-      "string_two": "try this library :)"
-    } 
+      "string_one_key" : "hello!",
+      "string_two_key": "try this library :)"
+    }
 }
 ```
 
@@ -104,12 +104,12 @@ Content example:
 
 ```java
 // current locale en
-Mantis mantis = new Mantis(Locale.getDefault());
-System.out.println(mantis.getResource("string_one")); // hello!
+Mantis mantis = new Mantis(Locale.ENGLISH);
+System.out.println(mantis.getResource("string_one_key")); // hello!
 
 // current locale it
-Mantis mantis = new Mantis(Locale.getDefault());
-System.out.println(mantis.getResource("string_one")); // ciao!
+Mantis mantisIt = new Mantis(Locale.ITALIAN);
+System.out.println(mantisIt.getResource("string_one_key")); // ciao!
 
 // Dynamic translation of any contents
 System.out.println(mantis.translate("Hello how are you?")); // Ciao, come stai?
