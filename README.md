@@ -1,4 +1,7 @@
 # Mantis
+
+**v1.0.0**
+
 Manage the translation of the content of your applications with Mantis!
 
 ## Implementation
